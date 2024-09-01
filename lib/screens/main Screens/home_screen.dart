@@ -64,40 +64,53 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F7),
-      body: Stack(
-        children: [
-          CustomScrollView(
-            controller: _scrollController,
-            slivers: [
-              SliverToBoxAdapter(
-                child: _buildHeader(),
-              ),
-              SliverToBoxAdapter(
-                child: _buildSearchBar(),
-              ),
-              SliverToBoxAdapter(
-                child: _buildFilterChips(),
-              ),
-              SliverToBoxAdapter(
-                child: _buildSectionHeader('Recent Courses', 'See All'),
-              ),
-              SliverToBoxAdapter(
-                child: _buildRecentCourses(),
-              ),
-              SliverToBoxAdapter(
-                child: _buildSectionHeader('Continue Learning', 'See All'),
-              ),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return _buildCourseCard(index);
-                  },
-                  childCount: 5,
+      body: RefreshIndicator(
+        color: Colors.teal,
+        onRefresh: () async{
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Refreshed'),
+            ),
+          );
+         await Future.delayed(
+           const Duration(seconds: 2)
+         );
+        },
+        child: Stack(
+          children: [
+            CustomScrollView(
+              controller: _scrollController,
+              slivers: [
+                SliverToBoxAdapter(
+                  child: _buildHeader(),
                 ),
-              ),
-            ],
-          ),
-        ],
+                SliverToBoxAdapter(
+                  child: _buildSearchBar(),
+                ),
+                SliverToBoxAdapter(
+                  child: _buildFilterChips(),
+                ),
+                SliverToBoxAdapter(
+                  child: _buildSectionHeader('Recent Courses', 'See All'),
+                ),
+                SliverToBoxAdapter(
+                  child: _buildRecentCourses(),
+                ),
+                SliverToBoxAdapter(
+                  child: _buildSectionHeader('Continue Learning', 'See All'),
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return _buildCourseCard(index);
+                    },
+                    childCount: 5,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

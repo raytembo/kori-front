@@ -11,7 +11,7 @@ class _LIbraryScreenState extends State<LIbraryScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("Library"),
+      body: Center(child: Text("Library")),
     );
   }
 }

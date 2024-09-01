@@ -12,7 +12,7 @@ class _MembershipScreenState extends State<MembershipScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text("Membership Screen"),
+      body: Center(child: Text("Membership Screen")),
     );
   }
 }

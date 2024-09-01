@@ -12,7 +12,7 @@ class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body:Text("Tasks")
+      body:Center(child: Text("Tasks"))
     );
   }
 }
