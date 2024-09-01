@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(width: 15),
               const Text(
-                'Welcome Back!',
+                'Welcome Back Ray!',
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               const Spacer(),
