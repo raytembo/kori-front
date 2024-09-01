@@ -23,6 +23,7 @@ class _NotificationsEmailsScreenState extends State<NotificationsEmailsScreen> {
       body: ListView(
         children: [
           SwitchListTile(
+            activeColor: Colors.teal,
             title: Text('Toll'),
             subtitle: Text(
                 'Whenever a toll is deducted, you will receive a notification.'),
@@ -35,6 +36,7 @@ class _NotificationsEmailsScreenState extends State<NotificationsEmailsScreen> {
           ),
           SwitchListTile(
             title: Text('Low Balance'),
+            activeColor: Colors.teal,
             subtitle: Text(
                 'Whenever your tag balance gets below ₹100, you will receive a notification.'),
             value: lowBalanceNotification,
@@ -46,6 +48,7 @@ class _NotificationsEmailsScreenState extends State<NotificationsEmailsScreen> {
           ),
           Divider(),
           SwitchListTile(
+            activeColor: Colors.teal,
             title: Text('Toll'),
             subtitle:
             Text('Whenever a toll is deducted, you will receive an email.'),
@@ -57,6 +60,7 @@ class _NotificationsEmailsScreenState extends State<NotificationsEmailsScreen> {
             },
           ),
           SwitchListTile(
+            activeColor: Colors.teal,
             title: Text('Low Balance'),
             subtitle: Text(
                 'Whenever your tag balance gets below ₹100, you will receive an email.'),

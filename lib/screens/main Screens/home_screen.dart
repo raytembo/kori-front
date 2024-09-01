@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Components/filterchips.dart';
+import 'package:untitled/Components/filterchips/all_filter_chip.dart';
+import 'package:untitled/Components/filterchips/completed.dart';
+import 'package:untitled/Components/filterchips/learning.dart';
+import 'package:untitled/Components/filterchips/popular.dart';
+import 'package:untitled/screens/Other%20Screens/calendar.dart';
 import 'package:untitled/screens/Other%20Screens/course_screen.dart';
+import 'package:untitled/screens/Other%20Screens/notifications.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
         fontFamily: 'Roboto',
       ),
       home: HomeScreen(),
@@ -98,14 +105,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildHeader() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.8),
+        color: Colors.teal.withOpacity(0.8),
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(40.0),
           bottomRight: Radius.circular(40.0),
         ),
         border: Border.all(
           color: Colors.white,
-          width: 5,
+          width: 0.5,
         ),
       ),
       child: SafeArea(
@@ -114,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             children: [
               const CircleAvatar(
-                backgroundImage: AssetImage('assets/profile_image.jpg'),
+                child: Icon(Icons.person),
               ),
               const SizedBox(width: 15),
               const Text(
@@ -125,11 +132,15 @@ class _HomeScreenState extends State<HomeScreen> {
               IconButton(
                 icon:
                     const Icon(Icons.calendar_today_sharp, color: Colors.white),
-                onPressed: () {},
+                onPressed: () {
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CalendarScreen()));
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.notifications, color: Colors.white),
-                onPressed: () {},
+                onPressed: () {
+                 Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NotificationsEmailsScreen()));
+                },
               ),
             ],
           ),
@@ -147,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: const TextField(
-          textAlign: TextAlign.right,
+          textAlign: TextAlign.left,
           decoration: InputDecoration(
             hintText: 'Search course or mentors',
             suffixIcon: Padding(
@@ -167,31 +178,16 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildFilterChips() {
+    bool isSelected = false;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16.0),
+      padding: const EdgeInsets.all(10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          FilterChip(
-            label: const Text('All'),
-            selected: true,
-            onSelected: (bool selected) {},
-          ),
-          FilterChip(
-            label: const Text('Popular'),
-            selected: false,
-            onSelected: (bool selected) {},
-          ),
-          FilterChip(
-            label: const Text('Learning Path'),
-            selected: false,
-            onSelected: (bool selected) {},
-          ),
-          FilterChip(
-            label: const Text('Completed'),
-            selected: false,
-            onSelected: (bool selected) {},
-          ),
+          AllFilterChip(),
+          PopularFilterChip(),
+          LearningFilterchip(),
+          Completedfilterchip()
         ],
       ),
     );
@@ -209,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Text(
             action,
-            style: const TextStyle(fontSize: 14, color: Colors.blue),
+            style: const TextStyle(fontSize: 14, color: Colors.teal),
           ),
         ],
       ),
@@ -252,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(15)),
                           image: DecorationImage(
-                            image: AssetImage('assets/course_image.jpg'),
+                            image: AssetImage('assets/physics.jpg'),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -308,14 +304,14 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           child: ListTile(
             leading: const CircleAvatar(
-              backgroundImage: AssetImage('assets/course_thumbnail.jpg'),
+              backgroundImage: AssetImage('assets/law.jpg'),
             ),
             title: Text('Course ${index + 1}'),
             subtitle: const Text('UI/UX Mastery'),
             trailing: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.play_arrow, color: Colors.blue),
+                Icon(Icons.play_arrow, color: Colors.teal),
               ],
             ),
           ),

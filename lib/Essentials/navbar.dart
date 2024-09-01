@@ -49,16 +49,11 @@ class _NavbarState extends State<Navbar> {
           currentIndex: _selectedItemPosition,
           onTap: (index) => setState(() => _selectedItemPosition = index),
           items: const [
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                ),
-                label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.category), label: 'Categories'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+            BottomNavigationBarItem(icon: Icon(Icons.home,), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.library_books), label: 'Library'),
+            BottomNavigationBarItem(icon: Icon(Icons.task), label: 'Tasks'),
+            BottomNavigationBarItem(icon: Icon(Icons.person_pin_rounded), label: 'Members'),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
           ],
         ));
 
