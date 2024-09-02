@@ -13,7 +13,7 @@ class _AllFilterChipState extends State<AllFilterChip> {
   Widget build(BuildContext context) {
     return FilterChip(
       selectedColor: Colors.greenAccent,
-      label: Text("All"),
+      label: const Text("All"),
       onSelected:(bool selected){
         setState(() {
           isSelected = !isSelected;

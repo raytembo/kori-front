@@ -15,6 +15,10 @@ class CourseScreen extends StatelessWidget {
 }
 
 class CourseDetailsScreen extends StatelessWidget {
+
+  int enrollCounter = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +58,7 @@ class CourseDetailsScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: LinearProgressIndicator(
-                      value: 0.4, // Example progress value
+                      value: 0.1, // Example progress value
                       backgroundColor: Colors.grey[300],
                       color: Colors.teal,
                       minHeight: 8,
@@ -64,6 +68,7 @@ class CourseDetailsScreen extends StatelessWidget {
                   IconButton(
                     icon: const Icon(Icons.note, color: Colors.teal),
                     onPressed: () {
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => FlashcardScreen()),
@@ -110,11 +115,22 @@ class CourseDetailsScreen extends StatelessWidget {
             backgroundColor: Colors.teal,
           ),
           onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Enrolled'),
-              ),
-            );
+
+            if(enrollCounter <1){
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Enrolled'),
+                ),
+              );
+
+            }else{
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("You've Already Enrolled"),
+                ),
+              );
+            }
+            enrollCounter++;
           },
           child: const Text(
             'Enroll Now',

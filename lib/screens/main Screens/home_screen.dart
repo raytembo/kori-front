@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     (context, index) {
                       return _buildCourseCard(index);
                     },
-                    childCount: 5,
+                    childCount: 4,
                   ),
                 ),
               ],
@@ -191,15 +191,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildFilterChips() {
     bool isSelected = false;
-    return Padding(
-      padding: const EdgeInsets.all(10),
+    return const Padding(
+      padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          AllFilterChip(),
-          PopularFilterChip(),
-          LearningFilterchip(),
-          Completedfilterchip()
+          Flexible(
+              fit: FlexFit.tight,
+              flex:2,
+              child: AllFilterChip()
+          ),
+          Flexible(
+              fit: FlexFit.tight,
+              flex: 3,
+              child: PopularFilterChip()
+          ),
+          Flexible(
+              fit: FlexFit.tight,
+              flex: 2,
+              child: LearningFilterchip()
+          ),
+          Flexible(
+              fit: FlexFit.tight,
+              flex: 4,
+              child: Completedfilterchip()
+          )
         ],
       ),
     );
@@ -230,11 +246,27 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildRecentCourses() {
+
+    List<String> assetImages = [
+      "assets/ui.jpg",
+      "assets/code.jpg",
+      "assets/law.jpg",
+      "assets/writer.jpg",
+      "assets/bio.jpg"
+    ];
+    List<String> courseNames = [
+      "Design",
+      "Computer Science",
+      "Law",
+      "Literature",
+      "Biology"
+    ];
+
     return SizedBox(
       height: 200,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: 4,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
@@ -268,11 +300,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                         child: Container(
                           height: 100,
-                          decoration: const BoxDecoration(
+                          decoration:  BoxDecoration(
                             borderRadius:
                                 BorderRadius.vertical(top: Radius.circular(15)),
                             image: DecorationImage(
-                              image: AssetImage('assets/physics.jpg'),
+                              image: AssetImage(assetImages[index+1]),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -284,13 +316,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Course ${index + 1}',
+                              courseNames[index+1],
                               style: const TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 4),
-                            const Text(
-                              'Instructor Name',
+                            Text(
+                              'Instructor ${index+1}',
                               style: TextStyle(color: Colors.grey),
                             ),
                             const SizedBox(height: 4),
@@ -317,6 +349,24 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildCourseCard(int index) {
+
+    List<String> assetImages = [
+      "assets/ui.jpg",
+      "assets/code.jpg",
+      "assets/law.jpg",
+      "assets/writer.jpg",
+      "assets/bio.jpg"
+    ];
+
+    List<String> courseNames = [
+      "Design",
+      "Computer Science",
+      "Law",
+      "Literature",
+      "Biology"
+    ];
+
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Card(
@@ -328,11 +378,11 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.pushNamed(context, '/courseDetails', arguments: index);
           },
           child: ListTile(
-            leading: const CircleAvatar(
-              backgroundImage: AssetImage('assets/law.jpg'),
+            leading:  CircleAvatar(
+              backgroundImage: AssetImage(assetImages[index]),
             ),
-            title: Text('Course ${index + 1}'),
-            subtitle: const Text('UI/UX Mastery'),
+            title: Text(courseNames[index]),
+            subtitle: Text('Instructor ${index+1}'),
             trailing: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

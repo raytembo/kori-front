@@ -15,7 +15,6 @@ class _MembershipScreenState extends State<MembershipScreen> {
       body: SafeArea(
         child: Column(
           children: [
-
             Center(
               child: Text("MemberShip",style: TextStyle(
                 fontWeight: FontWeight.bold,

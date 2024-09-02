@@ -13,7 +13,7 @@ class _LearningFilterchipState extends State<LearningFilterchip> {
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      label: const Text("Learning Path"),
+      label: const Text("Path"),
       selectedColor: Colors.greenAccent,
       onSelected:(bool selected){
         setState(() {
