@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/screens/Other%20Screens/flashcard_screen.dart';
 
 class CourseScreen extends StatelessWidget {
   @override
@@ -17,10 +18,10 @@ class CourseDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[50],
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        title: Text('UI UX Design'),
-        backgroundColor: Colors.blueAccent,
+        title: const Text('UI UX Design'),
+        backgroundColor: Colors.teal,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -32,14 +33,14 @@ class CourseDetailsScreen extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.asset(
-                  'assets/course_image.jpg', // Replace with your actual image path
+                  'assets/ui.jpg',
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 'Figma UI UX Design Essentials',
                 style: TextStyle(
                   fontSize: 22,
@@ -47,7 +48,7 @@ class CourseDetailsScreen extends StatelessWidget {
                   color: Colors.black87,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,13 +56,13 @@ class CourseDetailsScreen extends StatelessWidget {
                     child: LinearProgressIndicator(
                       value: 0.4, // Example progress value
                       backgroundColor: Colors.grey[300],
-                      color: Colors.blueAccent,
+                      color: Colors.teal,
                       minHeight: 8,
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   IconButton(
-                    icon: Icon(Icons.note, color: Colors.blueAccent),
+                    icon: const Icon(Icons.note, color: Colors.teal),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -71,12 +72,12 @@ class CourseDetailsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15.0),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: Colors.black12,
                       blurRadius: 10.0,
@@ -86,21 +87,14 @@ class CourseDetailsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     TabBarSection(),
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          LessonTile(title: 'Introduction', duration: '2 Min 18 Sec', isCompleted: true),
-                          LessonTile(title: 'What is UI UX design?', duration: '18 Min 46 Sec', isLocked: true),
-                          LessonTile(title: 'How to make wireframe', duration: '20 Min 58 Sec', isLocked: true),
-                          LessonTile(title: 'Your first design', duration: '15 Min 30 Sec', isLocked: true),
-                        ],
-                      ),
+                    const Padding(
+                      padding: EdgeInsets.all(16.0),
+
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -109,16 +103,25 @@ class CourseDetailsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: Colors.teal,
           ),
-          onPressed: () {},
-          child: Text(
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Enrolled'),
+              ),
+            );
+          },
+          child: const Text(
             'Enroll Now',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(
+                fontSize: 18,
+              color: Colors.white
+            ),
           ),
         ),
       ),
@@ -135,14 +138,20 @@ class TabBarSection extends StatelessWidget {
         children: [
           TabBar(
             indicator: BoxDecoration(
-              color: Colors.blueAccent,
-              borderRadius: BorderRadius.circular(15.0),
+              color: Colors.teal,
+              borderRadius: BorderRadius.circular(10.0),
             ),
             labelColor: Colors.white,
             unselectedLabelColor: Colors.black54,
-            tabs: [
-              Tab(text: 'Playlist (22)'),
-              Tab(text: 'Description'),
+            tabs: const [
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Tab(text: 'Playlist (22)'),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Tab(text: 'Description'),
+              ),
             ],
           ),
           SizedBox(
@@ -151,8 +160,8 @@ class TabBarSection extends StatelessWidget {
               children: [
                 // Content for the Playlist tab
                 ListView(
-                  padding: EdgeInsets.all(16),
-                  children: [
+                  padding: const EdgeInsets.all(16),
+                  children: const [
                     LessonTile(title: 'Introduction', duration: '2 Min 18 Sec', isCompleted: true),
                     LessonTile(title: 'What is UI UX design?', duration: '18 Min 46 Sec', isLocked: true),
                     LessonTile(title: 'How to make wireframe', duration: '20 Min 58 Sec', isLocked: true),
@@ -160,8 +169,8 @@ class TabBarSection extends StatelessWidget {
                   ],
                 ),
                 // Content for the Description tab
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Text(
                     'This course covers the fundamentals of UI/UX design using Figma. '
                         'You will learn how to create wireframes, design your first project, and more.',
@@ -199,25 +208,9 @@ class LessonTile extends StatelessWidget {
       ),
       title: Text(title),
       subtitle: Text(duration),
-      trailing: isCompleted ? Icon(Icons.check_circle, color: Colors.green) : null,
+      trailing: isCompleted ? const Icon(Icons.check_circle, color: Colors.green) : null,
     );
   }
 }
 
-class FlashcardScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flashcards'),
-        backgroundColor: Colors.blueAccent,
-      ),
-      body: Center(
-        child: Text(
-          'Flashcards will be displayed here.',
-          style: TextStyle(fontSize: 24, color: Colors.black87),
-        ),
-      ),
-    );
-  }
-}
+

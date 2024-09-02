@@ -12,7 +12,19 @@ class _MembershipScreenState extends State<MembershipScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text("Membership Screen")),
+      body: SafeArea(
+        child: Column(
+          children: [
+
+            Center(
+              child: Text("MemberShip",style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              ),),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../Essentials/event.dart';
+
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
 
@@ -16,6 +18,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
       _focusDay = day;
     });
   }
+  Map<DataTable, List<Event>>events = {};
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +26,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
       body:SafeArea(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("Schedule", style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),),
-            ),
+            Text("Schedule", style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),),
             Padding(
               padding: const EdgeInsets.only(top: 50.0),
               child: TableCalendar(
@@ -43,6 +43,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 onDaySelected: selectMethod,
               ),
             ),
+           
         
           ],
         

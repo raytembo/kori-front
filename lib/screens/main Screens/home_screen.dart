@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Components/filterchips.dart';
 import 'package:untitled/Components/filterchips/all_filter_chip.dart';
 import 'package:untitled/Components/filterchips/completed.dart';
 import 'package:untitled/Components/filterchips/learning.dart';
@@ -216,9 +215,14 @@ class _HomeScreenState extends State<HomeScreen> {
             title,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          Text(
-            action,
-            style: const TextStyle(fontSize: 14, color: Colors.teal),
+          GestureDetector(
+            onTap: (){
+
+            },
+            child: Text(
+              action,
+              style: const TextStyle(fontSize: 14, color: Colors.teal),
+            ),
           ),
         ],
       ),
@@ -255,14 +259,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 100,
-                        decoration: const BoxDecoration(
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(15)),
-                          image: DecorationImage(
-                            image: AssetImage('assets/physics.jpg'),
-                            fit: BoxFit.cover,
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => CourseScreen()),
+                          );
+                        },
+                        child: Container(
+                          height: 100,
+                          decoration: const BoxDecoration(
+                            borderRadius:
+                                BorderRadius.vertical(top: Radius.circular(15)),
+                            image: DecorationImage(
+                              image: AssetImage('assets/physics.jpg'),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
