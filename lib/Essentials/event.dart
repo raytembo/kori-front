@@ -2,6 +2,7 @@
 
 class Event {
   final String title;
-  Event(this.title);
+  final DateTime date;
+  Event({required this.title, required this.date});
 
 }
