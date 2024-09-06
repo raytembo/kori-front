@@ -26,12 +26,6 @@ class _CalendarScreenState extends State<CalendarScreen> {
   }
 
 
-
-  Map<DataTable, List<Event>>events = {
-
-
-  };
-
   void addevent (){
     eventSamples.add(Event(title: 'random', date: _focusDay));
     for (int i=0; i<eventSamples.length; i++){
