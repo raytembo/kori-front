@@ -4,7 +4,7 @@ import 'package:untitled/screens/main%20Screens/home_screen.dart';
 import 'package:untitled/screens/main%20Screens/library.dart';
 import 'package:untitled/screens/main%20Screens/membership.dart';
 import 'package:untitled/screens/main%20Screens/settings.dart';
-import 'package:untitled/screens/main%20Screens/tasks.dart';
+import 'package:untitled/screens/Other%20Screens/assignments.dart';
 
 
 class Navbar extends StatefulWidget {
@@ -21,7 +21,7 @@ class _NavbarState extends State<Navbar> {
   final List<Widget> _pages = [
      HomeScreen(),
      const LIbraryScreen(),
-    const TasksScreen(),
+     PlanDetailsScreen(),
     const MembershipScreen(),
     SettingsScreen()
 

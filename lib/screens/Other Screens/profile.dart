@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Profile Settings'),
-        backgroundColor: Colors.lightBlueAccent,
+        title: Text('My Profile'),
+        backgroundColor: Colors.teal,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
@@ -27,92 +27,132 @@ class MyProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
+            // Profile Picture Section
             Center(
               child: Column(
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    backgroundColor: Colors.grey[200],
-                    child: Icon(Icons.add, size: 40, color: Colors.grey),
+                    backgroundColor: Colors.grey[300],
+                    child: Icon(Icons.person, size: 50, color: Colors.white),
                   ),
                   SizedBox(height: 8),
-                  Text(
-                    'Tap the big circle to change your profile image, or upload a new one',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.grey),
+                  TextButton(
+                    onPressed: () {
+                      // Action to change profile picture
+                    },
+                    child: Text(
+                      'Change Profile Picture',
+                      style: TextStyle(color: Colors.teal),
+                    ),
                   ),
                 ],
               ),
             ),
             SizedBox(height: 20),
+
+            // E-mail Address
             ListTile(
+              leading: Icon(Icons.email, color: Colors.teal),
               title: Text(
-                'E-mail Address',
-                style: TextStyle(color: Colors.lightBlueAccent, fontWeight: FontWeight.bold),
+                'Email Address',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('amyortega@gmail.com'),
+              subtitle: Text('amyortega@student.edu'),
               onTap: () {
                 // Email change logic
               },
             ),
+
+            // Student ID
             ListTile(
+              leading: Icon(Icons.perm_identity, color: Colors.teal),
               title: Text(
-                'Choose Currency',
-                style: TextStyle(color: Colors.lightBlueAccent, fontWeight: FontWeight.bold),
+                'Student ID',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              subtitle: DropdownButton<String>(
-                value: 'US Dollars',
-                items: <String>['US Dollars', 'Euro', 'British Pound']
-                    .map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (_) {},
+              subtitle: Text('202400123'),
+            ),
+
+            // Program
+            ListTile(
+              leading: Icon(Icons.school, color: Colors.teal),
+              title: Text(
+                'Program',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text('Bachelor of Science in Computer Science'),
+            ),
+
+            // Year of Study
+            ListTile(
+              leading: Icon(Icons.calendar_today, color: Colors.teal),
+              title: Text(
+                'Year of Study',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text('Year 2'),
+            ),
+
+            SizedBox(height: 20),
+
+            // Notification Settings
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: Text(
+                'Notification Settings',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ),
-            ListTile(
-              title: Text(
-                'Figures backed by XD Currency Converter',
-                style: TextStyle(color: Colors.grey),
-              ),
-            ),
+
             SwitchListTile(
               title: Text(
-                'New Arrivals',
-                style: TextStyle(color: Colors.lightBlueAccent),
+                'Grade Updates',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
+              subtitle: Text('Receive notifications when grades are posted'),
               value: true,
               onChanged: (bool value) {
                 // Handle switch
               },
             ),
+
             SwitchListTile(
               title: Text(
-                'Discounts',
-                style: TextStyle(color: Colors.lightBlueAccent),
+                'Assignment Deadlines',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
+              subtitle: Text('Get reminders for upcoming assignments'),
               value: false,
               onChanged: (bool value) {
                 // Handle switch
               },
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Text(
-                'Choose what kind of notifications you would like to receive',
-                style: TextStyle(color: Colors.grey),
+
+            SwitchListTile(
+              title: Text(
+                'Announcements',
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
+              subtitle: Text('Be notified when new announcements are made'),
+              value: true,
+              onChanged: (bool value) {
+                // Handle switch
+              },
             ),
+
+            SizedBox(height: 20),
+
+            // Save Button
             ElevatedButton(
               onPressed: () {
                 // Save changes
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.lightBlueAccent,
+                backgroundColor: Colors.teal,
+                padding: EdgeInsets.symmetric(vertical: 14),
               ),
-              child: Text('Save Changes'),
+              child: Text('Save Changes', style: TextStyle(fontSize: 16)),
             ),
           ],
         ),
