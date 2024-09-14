@@ -65,6 +65,7 @@ class _CourseRegistrationScreenState extends State<CourseRegistrationScreen> {
                 labelText: 'Search Courses',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.teal, width: 3),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
               ),
@@ -108,7 +109,9 @@ class _CourseRegistrationScreenState extends State<CourseRegistrationScreen> {
               children: [
                 ElevatedButton(
                   onPressed: _selectedCourses.isNotEmpty ? _clearSelection : null,
-                  child: const Text('Clear All'),
+                  child: const Text('Clear All', style: TextStyle(
+                    color:Colors.white
+                  ),),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey, // Button color
                   ),
@@ -126,7 +129,8 @@ class _CourseRegistrationScreenState extends State<CourseRegistrationScreen> {
                       ),
                     );
                   },
-                  child: const Text('View Timetable'),
+                  child: const Text('View Timetable', style: TextStyle(color: Colors.white),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal, // Button color
                   ),

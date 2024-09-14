@@ -14,7 +14,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   DateTime _focusDay = DateTime.now();
 
   List eventSamples = [
-  Event(date: DateTime(2024, 09, 1), title: 'Event 4'),
+  Event(date: DateTime(2024, 09, 1), title: 'Event 1'),
   Event(date: DateTime(2024, 09, 2), title: 'Event 2'),
   Event(date: DateTime(2024, 09, 3), title: 'Event 3'),
   ];
@@ -49,7 +49,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
       body:SafeArea(
         child: Column(
           children: [
-            const Text("Schedule", style: TextStyle(
+            const Text("School Calendar", style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),),

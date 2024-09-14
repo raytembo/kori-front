@@ -22,10 +22,10 @@ class TimetableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("This Week's Timetable"),
+        title: const Text("This Week's Timetable"),
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               // Add task button pressed
             },
@@ -64,14 +64,14 @@ class ScheduleCard extends StatelessWidget {
         children: [
           Container(
             width: 80,
-            child: Text(time, style: TextStyle(fontSize: 16)),
+            child: Text(time, style: const TextStyle(fontSize: 16)),
           ),
           Expanded(
             child: Card(
               color: color,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(title, style: TextStyle(fontSize: 16)),
+                child: Text(title, style: const TextStyle(fontSize: 16, color: Colors.white)),
               ),
             ),
           ),
