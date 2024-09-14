@@ -14,7 +14,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
   DateTime _focusDay = DateTime.now();
 
   List eventSamples = [
-  Event(date: DateTime(2024, 09, 1), title: 'Event '),
+  Event(date: DateTime(2024, 09, 1), title: 'Event 4'),
   Event(date: DateTime(2024, 09, 2), title: 'Event 2'),
   Event(date: DateTime(2024, 09, 3), title: 'Event 3'),
   ];
