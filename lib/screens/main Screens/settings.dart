@@ -110,6 +110,12 @@ class SettingsScreen extends StatelessWidget {
               // Navigate to Legal Screen
             },
           ),
+          ListTile(
+            title: const Text('Log Out', style: TextStyle(color: Colors.red),),
+            onTap: () {
+              // Navigate to Legal Screen
+            },
+          ),
         ],
       ),
     );

@@ -5,23 +5,15 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Profile'),
+        title: const Text('My Profile'),
         backgroundColor: Colors.teal,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              // Open menu
-            },
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,14 +26,14 @@ class ProfileScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 50,
                     backgroundColor: Colors.grey[300],
-                    child: Icon(Icons.person, size: 50, color: Colors.white),
+                    child: const Icon(Icons.person, size: 50, color: Colors.white),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   TextButton(
                     onPressed: () {
                       // Action to change profile picture
                     },
-                    child: Text(
+                    child: const Text(
                       'Change Profile Picture',
                       style: TextStyle(color: Colors.teal),
                     ),
@@ -49,23 +41,22 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-
+            const SizedBox(height: 10),
             // E-mail Address
             ListTile(
-              leading: Icon(Icons.email, color: Colors.teal),
-              title: Text(
+              leading: const Icon(Icons.email, color: Colors.teal),
+              title: const Text(
                 'Email Address',
                 style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('amyortega@student.edu'),
+              subtitle: const Text('amyortega@student.edu'),
               onTap: () {
                 // Email change logic
               },
             ),
 
             // Student ID
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.perm_identity, color: Colors.teal),
               title: Text(
                 'Student ID',
@@ -75,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             // Program
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.school, color: Colors.teal),
               title: Text(
                 'Program',
@@ -85,7 +76,7 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             // Year of Study
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.calendar_today, color: Colors.teal),
               title: Text(
                 'Year of Study',
@@ -94,11 +85,11 @@ class ProfileScreen extends StatelessWidget {
               subtitle: Text('Year 2'),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 10),
 
             // Notification Settings
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
               child: Text(
                 'Notification Settings',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
@@ -106,11 +97,12 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             SwitchListTile(
-              title: Text(
+              activeColor: Colors.teal,
+              title: const Text(
                 'Grade Updates',
                 style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Receive notifications when grades are posted'),
+              subtitle: const Text('Receive notifications when grades are posted'),
               value: true,
               onChanged: (bool value) {
                 // Handle switch
@@ -118,11 +110,12 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             SwitchListTile(
-              title: Text(
+              activeColor: Colors.teal,
+              title: const Text(
                 'Assignment Deadlines',
                 style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Get reminders for upcoming assignments'),
+              subtitle: const Text('Get reminders for upcoming assignments'),
               value: false,
               onChanged: (bool value) {
                 // Handle switch
@@ -130,18 +123,19 @@ class ProfileScreen extends StatelessWidget {
             ),
 
             SwitchListTile(
-              title: Text(
+              activeColor: Colors.teal,
+              title: const Text(
                 'Announcements',
                 style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Be notified when new announcements are made'),
+              subtitle: const Text('Be notified when new announcements are made'),
               value: true,
               onChanged: (bool value) {
                 // Handle switch
               },
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Save Button
             ElevatedButton(
@@ -150,9 +144,9 @@ class ProfileScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
-                padding: EdgeInsets.symmetric(vertical: 14),
+                padding: const EdgeInsets.symmetric(vertical: 14),
               ),
-              child: Text('Save Changes', style: TextStyle(fontSize: 16)),
+              child: const Text('Save Changes', style: TextStyle(fontSize: 16, color: Colors.white)),
             ),
           ],
         ),
