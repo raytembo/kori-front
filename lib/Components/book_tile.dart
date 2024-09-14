@@ -52,8 +52,7 @@ class BookTile extends StatelessWidget {
                                       BookButton()
 
                                     ],)
-                                    
-                                   
+
                                   ],
                                 ),
                               );
