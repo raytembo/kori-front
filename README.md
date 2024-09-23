@@ -6,10 +6,10 @@
 
 ## Features
 
-- **User Authentication**: Secure login/signup functionality for students using Firebase (or custom backend).
+- **User Authentication**: Secure login/signup functionality for students.
 - **Courses & Modules**: Browse available courses and view detailed course content.
 - **Assignments**: Submit assignments and track submission deadlines.
-- **Grades**: View grades for assignments and quizzes.
+- **Grades**: View grades for assignments and quizzes
 - **Announcements**: Receive important updates from teachers or administrators.
 - **Push Notifications**: Get notified about new assignments, grades, or announcements.
 - **User Profile**: Update student information and settings.
